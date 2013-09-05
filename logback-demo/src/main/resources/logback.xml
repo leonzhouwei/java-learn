@@ -6,18 +6,14 @@
 		</encoder>
 	</appender>
 
-	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>adcapture.log</file>
-
-		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-			<fileNamePattern>adcapture.%i.log</fileNamePattern>
-			<minIndex>1</minIndex>
-			<maxIndex>10</maxIndex>
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>demo.log.%d{yyyy-MM-dd_HH-mm}.zip
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
 		</rollingPolicy>
 
-		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-			<maxFileSize>1KB</maxFileSize>
-		</triggeringPolicy>
 		<encoder>
 			<pattern>%d [%thread | %logger.%method\(%file:%line\)] %-5level - %msg%n</pattern>
 		</encoder>
